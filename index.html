@@ -10,6 +10,38 @@
 
 <body>
 
+    <p class="title">Library</p>
+
+    <dialog id="dialog">
+
+        <form method="dialog">
+
+            <div>
+                <label for="title">Book title: </label>
+                <input type="text" id="title" name="title" required>
+                <label for="author">Book author: </label>
+                <input type="text" id="author" name="author" required>
+                <label for="pages">Number of pages</label>
+                <input type="number" id="pages" name="pages" required>
+            </div>
+
+            <div>
+                <button id="cancelBtn" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" value="default" formmethod="dialog">Confirm</button>
+            </div>
+
+        </form>
+
+    </dialog>
+
+    <div id="addBookButton">
+        <button>Add book</button>
+    </div>
+    <div id="container">
+
+    </div>
+
+
 
     <script src="index.js"></script>
 </body>
