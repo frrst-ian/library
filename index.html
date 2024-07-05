@@ -10,28 +10,33 @@
 
 <body>
 
-    <p class="title">Library</p>
+    <p class="header">Library</p>
 
     <dialog id="dialog">
-
-        <form method="dialog">
-
-            <div>
-                <label for="title">Book title: </label>
-                <input type="text" id="title" name="title" required>
-                <label for="author">Book author: </label>
-                <input type="text" id="author" name="author" required>
-                <label for="pages">Number of pages</label>
-                <input type="number" id="pages" name="pages" required>
+        <form>
+            <div id="form">
+                <div class="first-row row">
+                    <label for="title">Book title: </label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="second-row row">
+                    <label for="author row ">Book author: </label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="third-row row">
+                    <label  for="pages">Number of pages:</label>
+                    <input type="number" id="pages" name="page" min="1" required>
+                </div>
             </div>
-
-            <div>
-                <button id="cancelBtn" value="cancel" formmethod="dialog">Cancel</button>
-                <button id="confirmBtn" value="default" formmethod="dialog">Confirm</button>
+            <div class="fourth-row">
+                <button id="cancelBtn" type="button">Cancel</button>
+                <button id="confirmBtn" type="button">Confirm</button>
             </div>
-
+            <div class="form-row">
+                <label for="read">Have you read it?</label>
+                <input type="checkbox" id="read" name="read">
+            </div>
         </form>
-
     </dialog>
 
     <div id="addBookButton">
