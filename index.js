@@ -9,40 +9,40 @@ document.addEventListener("DOMContentLoaded", function () {
         container.innerHTML = "";
 
         Library.forEach((book, index) => {
-           
-                const card = document.createElement("div");
-                card.classList.add("card");
 
-                const titleElement = document.createElement("h3");
-                titleElement.textContent = book.title;
-                card.appendChild(titleElement);
+            const card = document.createElement("div");
+            card.classList.add("card");
 
-                const authorElement = document.createElement("p");
-                authorElement.textContent = `Author: ${book.author}`;
-                card.appendChild(authorElement);
+            const titleElement = document.createElement("h3");
+            titleElement.textContent = book.title;
+            card.appendChild(titleElement);
 
-                const pagesElement = document.createElement("p");
-                pagesElement.textContent = `Number of pages: ${book.pages}`;
-                card.appendChild(pagesElement);
+            const authorElement = document.createElement("p");
+            authorElement.textContent = `Author: ${book.author}`;
+            card.appendChild(authorElement);
 
-                const readStatus = document.createElement("p");
-                readStatus.textContent = book.read ? "Read" : "Not read";
-                readStatus.classList.add(book.read ? "read" : "not-read");
-                card.appendChild(readStatus);
+            const pagesElement = document.createElement("p");
+            pagesElement.textContent = `Number of pages: ${book.pages}`;
+            card.appendChild(pagesElement);
 
-                const toggleReadButton = document.createElement('button');
-                toggleReadButton.textContent = "Toggle Read ";
-                toggleReadButton.classList.add('toggle-read-btn');
-                toggleReadButton.dataset.index  = index;
-                card.appendChild(toggleReadButton);
+            const readStatus = document.createElement("p");
+            readStatus.textContent = book.read ? "Read" : "Not read";
+            readStatus.classList.add(book.read ? "read" : "not-read");
+            card.appendChild(readStatus);
 
-                const removeButton = document.createElement('button');
-                removeButton.textContent = "Remove";
-                removeButton.classList.add("remove-btn");
-                removeButton.dataset.index = index;
-                card.appendChild(removeButton);
+            const toggleReadButton = document.createElement('button');
+            toggleReadButton.textContent = "Toggle Read ";
+            toggleReadButton.classList.add('toggle-read-btn');
+            toggleReadButton.dataset.index = index;
+            card.appendChild(toggleReadButton);
 
-                container.appendChild(card);
+            const removeButton = document.createElement('button');
+            removeButton.textContent = "Remove";
+            removeButton.classList.add("remove-btn");
+            removeButton.dataset.index = index;
+            card.appendChild(removeButton);
+
+            container.appendChild(card);
         });
         addButtonListeners();
     }
@@ -50,12 +50,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function addButtonListeners() {
         const removeButtons = document.querySelectorAll(".remove-btn");
         removeButtons.forEach(button => {
-            button.addEventListener('click' , removeBook);
+            button.addEventListener('click', removeBook);
         });
 
         const toggleReadButtons = document.querySelectorAll('.toggle-read-btn');
         toggleReadButtons.forEach(button => {
-            button.addEventListener('click' , toggleReadStatus);
+            button.addEventListener('click', toggleReadStatus);
         })
     }
 
@@ -65,18 +65,21 @@ document.addEventListener("DOMContentLoaded", function () {
         displayBook();
     }
 
-    function removeBook(event ){
-        const index  = event.target.dataset.index;
-        Library.splice(index , 1);
+    function removeBook(event) {
+        const index = event.target.dataset.index;
+        Library.splice(index, 1);
         displayBook();
     }
     displayBook();
 
-    function Book(title, author, pages , read =false) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
+    class Book{
+
+        constructor({ title, author, pages, read =false }){
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.read = read;
+        }
     }
 
 
@@ -108,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const numPages = Number(pages);
 
             if (title && author && !isNaN(numPages) && numPages > 0) {
-                const newBook = new Book(title, author, numPages,read);
+                const newBook = new Book(title, author, numPages, read);
                 Library.push(newBook);
                 displayBook();
                 dialog.close();
