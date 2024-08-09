@@ -1,4 +1,5 @@
-*::before, *::after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -41,7 +42,10 @@ p.header {
   gap: 20px;
 }
 
-
+p.form-content {
+  display: flex;
+  margin: 7px;
+}
 
 #addBookButton {
   display: flex;
@@ -58,7 +62,8 @@ p.header {
   background-color: white;
 }
 
-#addBookButton button:hover, #addBookButton button:focus {
+#addBookButton button:hover,
+#addBookButton button:focus {
   cursor: pointer;
   box-shadow: 0px 0px 2px blue;
 }
@@ -92,14 +97,18 @@ label {
   flex-basis: 40%;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
   width: 55%;
   border-radius: 12px;
   padding: 8px;
   border: 1px solid #ccc;
+
+  width: 300px;
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
   box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.522);
   outline: none;
 }
@@ -108,10 +117,12 @@ input[type="text"]:focus, input[type="number"]:focus {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-right: 50px;
 }
 
-#cancelBtn, #confirmBtn {
-  margin: 0 8px;
+#cancelBtn,
+#confirmBtn {
+  margin: 30px 8px 0px 0px;
   padding: 8px 16px;
   background-color: white;
   border: 2px solid blue;
@@ -120,8 +131,10 @@ input[type="text"]:focus, input[type="number"]:focus {
   cursor: pointer;
 }
 
-#cancelBtn:hover, #confirmBtn:hover,
-#cancelBtn:focus, #confirmBtn:focus {
+#cancelBtn:hover,
+#confirmBtn:hover,
+#cancelBtn:focus,
+#confirmBtn:focus {
   background-color: #f0f0f0;
 }
 
@@ -167,15 +180,17 @@ dialog[open]::backdrop {
   background-color: #ff1a1a;
 }
 
-.form-row label  {
+.form-row label {
   position: absolute;
   bottom: 45px;
+  left: 9px;
+  bottom: 50px;
 }
 
 #read {
   position: absolute;
-  left: 184px;
-  bottom: 49px;
+  left: 190px;
+  bottom: 55px;
 }
 .read {
   color: green;
@@ -185,8 +200,37 @@ dialog[open]::backdrop {
   color: red;
 }
 
-.toggle-read-btn, .remove-btn {
+.toggle-read-btn,
+.remove-btn {
   margin: 5px;
   padding: 5px 10px;
   cursor: pointer;
+}
+
+input:invalid {
+  border-color: #900;
+  background-color: rgb(255, 233, 233);
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: rgb(255, 38, 38);
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.1em;
+}
+form {
+  margin-left: 55px;
 }
